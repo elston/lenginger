@@ -1,0 +1,30 @@
+version: '3'
+
+networks:
+  netmain:
+    driver: bridge
+
+
+services:
+
+  lending:
+      image: ${PROJECT}_lending
+      tty: true      
+      expose:
+        - "8000"
+      ports:
+        - "8000:8000"
+      networks:
+        - netmain   
+      environment:
+        - PROJECT=lending      
+        - WORKON_HOME=/lending/.env         
+        - FLASK_CONFIGURATION=development
+      volumes:
+        - ../../images/lending/src:/lending
+        - ../../images/lending/runserv.sh:/usr/local/bin/runserv.sh
+      # .............................................        
+      # restart: always        
+      command: /usr/local/bin/runserv.sh           
+
+   

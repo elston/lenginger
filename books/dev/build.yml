@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  lending:
+      build:
+        context: ../../images/lending
+        dockerfile: dev.dockerfile      
+      network_mode: "host"  
+      environment:
+        - PROJECT=lending
+        - WORKON_HOME=/tester/.env
+      volumes:
+        - ../../images/lending/src:/lending
+

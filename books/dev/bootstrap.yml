@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  lending:
+      image: ${PROJECT}_lending
+      network_mode: "host" 
+      environment:
+        - PROJECT=lending
+        - WORKON_HOME=/lending/.env 
+      volumes:
+        - ../../images/lending/src:/lending
+        - ../../images/lending/bootstrap.sh:/usr/local/bin/bootstrap.sh
+        - ../../images/lending/requirements/dev.txt:/tmp/requirements.txt
+
