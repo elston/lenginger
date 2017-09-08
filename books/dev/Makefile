@@ -6,7 +6,7 @@ all:
 # ========= pull ==============
 pull:
 	@echo "---> pull python:3.6-slim"
-	@docker pull python:3.4-slim
+	@docker pull python:3.6-slim
 
 # =========== build ================
 
